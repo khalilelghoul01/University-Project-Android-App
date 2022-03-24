@@ -24,6 +24,7 @@ import java.util.concurrent.ExecutionException;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     static HashMap<Integer,Integer> buttons= new HashMap<Integer,Integer>();
+    static HashMap<Integer,String> buttonNames= new HashMap<Integer,String>();
     Set<Integer> keyButtons = buttons.keySet();
     static HashMap<Integer,HashMap<Integer,Integer>> tablesData = new HashMap<Integer,HashMap<Integer,Integer>>();
     Set<Integer> keytablesData = tablesData.keySet();
@@ -37,13 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         updateInNewThread();
         buttonsHandlers();
         testHandler();
-        try {
-            HandlePizzaSending();
-        } catch (ExecutionException e) {
-            Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
-        } catch (InterruptedException e) {
-            Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
-        }
+
         OrientationEventListener orientationListener = new OrientationEventListener(MainActivity.this, SensorManager.SENSOR_DELAY_UI) {
             public void onOrientationChanged(int orientation) {
                 buttons = getData();
@@ -99,10 +94,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-    void HandlePizzaSending() throws ExecutionException, InterruptedException {
+    String HandlePizzaSending(String pizza) throws ExecutionException, InterruptedException {
         SendPizza send = new SendPizza();
-        send.execute("04montagnarde");
-        Toast.makeText(getApplicationContext(),"sent",Toast.LENGTH_SHORT).show();
+        return send.execute(pizza).get();
     }
 
     HashMap<Integer,Integer> getData(){
@@ -129,9 +123,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         keyButtons = buttons.keySet();
         if(!keyButtons.contains(id)){
             buttons.put(id,0);
+            if(!buttonNames.containsKey(id)){
+                Button buttonInst = ((Button) findViewById(id));
+                String output = buttonInst.getText().toString();
+                output = output.contains(":") ? output.split(":")[0]:output;
+                buttonNames.put(id,output);
+            }
         }
     }
 
+    private ArrayList<String> getPizzaFormatBtns(){
+        ArrayList<String> command = new ArrayList<>();
+
+        buttons.forEach((k,v) -> {
+            if(buttonNames.containsKey(k)){
+                String commandString = (String.valueOf(tableNum).length()==1?"0"+String.valueOf(tableNum):String.valueOf(tableNum))+buttonNames.get(k);
+                for(int i = 0 ; i < v;i++){
+                    command.add(commandString);
+                }
+            }
+        });
+        return command;
+    }
 
     private void buttonsHandlers(){
         ((Button)findViewById(R.id.tables)).setOnClickListener(this);
@@ -174,7 +187,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
             if(v.getId() == R.id.button9){
-
+                ArrayList<String> commandsToSend = getPizzaFormatBtns();
+                ArrayList<String> ServerResponse = getPizzaFormatBtns();
+                resetButtons();
+                updateInNewThread();
+                for (String pizza:commandsToSend) {
+                    try {
+                        ServerResponse.add(HandlePizzaSending(pizza));
+                    } catch (ExecutionException e) {
+                        Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
+                    } catch (InterruptedException e) {
+                        Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
+                    }
+                }
+                
             }
             if(v.getId() == R.id.button10){
                 resetButtons();
@@ -192,19 +218,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     protected void onPause() {
-        Toast.makeText(getApplicationContext(),"Pause",Toast.LENGTH_SHORT).show();
         super.onPause();
     }
 
     @Override
     protected void onStart() {
-        Toast.makeText(getApplicationContext(),"Start",Toast.LENGTH_SHORT).show();
         super.onStart();
     }
 
     @Override
     protected void onStop() {
-        Toast.makeText(getApplicationContext(),"Stop",Toast.LENGTH_SHORT).show();
         super.onStop();
     }
 }
