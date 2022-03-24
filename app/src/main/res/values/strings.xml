@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">pizzaria</string>
+    <string name="napo">Napolitaine</string>
+    <string name="bgColorBtnPizza">#000000</string>
+    <string name="fgColorBtnPizza">#fff</string>
+    <string name="input" />
+</resources>
