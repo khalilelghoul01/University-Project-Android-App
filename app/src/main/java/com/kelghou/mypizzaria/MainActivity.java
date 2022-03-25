@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         excludeBtns.add(R.id.button9);
         excludeBtns.add(R.id.button10);
         excludeBtns.add(R.id.tables);
+        //excludeBtns.add(R.id.custom);
     }
 
     void updateInNewThread(){
@@ -74,9 +75,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+    
+    
 
     void updateButtons(){
         buttons = getData();
+        checkState();
         keyButtons = buttons.keySet();
         for(int key : keyButtons){
             Button buttonInst = ((Button) findViewById(key));
@@ -96,7 +100,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     String HandlePizzaSending(String pizza) throws ExecutionException, InterruptedException {
         SendPizza send = new SendPizza();
-        return send.execute(pizza).get();
+        BundleServer bundle = new BundleServer(this,pizza);
+        return send.execute(bundle).get();
     }
 
     HashMap<Integer,Integer> getData(){
@@ -152,6 +157,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ((Button)findViewById(R.id.button9)).setEnabled(false);
         ((Button)findViewById(R.id.button10)).setOnClickListener(this);
         ((Button)findViewById(R.id.button10)).setEnabled(false);
+        ((Button)findViewById(R.id.custom)).setOnClickListener(this);
         addButton(R.id.button1);
         addButton(R.id.button2);
         addButton(R.id.button3);
@@ -165,10 +171,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-
+    
     public void onClick(View v) {
         keyButtons = buttons.keySet();
         if(v instanceof Button) {
+            setData(buttons);
             if(v.getId() == R.id.tables){
                 setData(buttons);
                 Intent switchActivityIntent = new Intent(this, ChoixTable.class);
@@ -199,7 +206,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 resetButtons();
                 updateInNewThread();
             }
+            if(v.getId() == R.id.custom){
+                createCustomPizza();
+                updateInNewThread();
+            }
         }
+    }
+
+    private void createCustomPizza() {
+        loadActivity(PizzaMultipleChoice.class);
     }
 
     private void handleCommands() {
@@ -216,7 +231,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
             }
         }
-        Intent popup = new Intent(this,PopUp.class);
+        loadActivity(PopUp.class);
+    }
+
+    private void loadActivity(Class activity){
+        Intent popup = new Intent(this,activity);
+        startActivity(popup);
+    }
+
+    public void startActivityOutside(Class activity){
+        Intent popup = new Intent(this,activity);
         startActivity(popup);
     }
 
@@ -236,6 +260,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setData(buttons);
         ((Button)findViewById(R.id.button9)).setEnabled(false);
         ((Button)findViewById(R.id.button10)).setEnabled(false);
+    }
+    
+    void checkState(){
+        keyButtons = buttons.keySet();
+        for (int key: keyButtons ) {
+            int v = buttons.get(key);
+            if(v>0){
+                updateButtonsStateUi();
+                break;
+            }
+        }
     }
     @Override
     protected void onPause() {
