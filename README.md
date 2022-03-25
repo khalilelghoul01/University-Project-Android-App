@@ -9,13 +9,13 @@
 
 |                						|Description					|
 |---------------------------------------|-------------------------------|
-|**Partie 1 - Part 1**						|Prise en main /\ First Impression ✅          |
+|**Partie 1 - Part 1**						|Prise en main `/\` First Impression ✅          |
 |**Partie 2 - Part 2**						|Interface✅       |
-|**Partie 3 - Part 3**						|Animation de l'interface /\ Animation of the interfac✅|
-|**Partie 4 - Part 4**						|Choix de la table du restaurant /\ Choice of restaurant table✅|
-|**Partie 5 - Part 5**						|Envoi des commandes en cuisine /\ Sending orders to the kitchen✅          |
-|**Partie 6 - Part 6**						|Pizza personnalisée /\ Personalized pizza❌✅           |
-|**Partie 7 - Part 7**						|Préférences /\ Preferences|
+|**Partie 3 - Part 3**						|Animation de l'interface `/\` Animation of the interfac✅|
+|**Partie 4 - Part 4**						|Choix de la table du restaurant `/\` Choice of restaurant table✅|
+|**Partie 5 - Part 5**						|Envoi des commandes en cuisine `/\` Sending orders to the kitchen✅          |
+|**Partie 6 - Part 6**						|Pizza personnalisée `/\` Personalized pizza❌✅           |
+|**Partie 7 - Part 7**						|Préférences `/\` Preferences|
 |**complémentaires 1 - complementary 1**    |`Not Yet`|
 |**complémentaires 2 - complementary 2**    |`Not Yet`|
 |**complémentaires 3 - complementary 3**    |`Not Yet`|
