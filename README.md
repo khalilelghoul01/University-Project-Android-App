@@ -24,14 +24,18 @@
 # Note
 > **Note:** Je n'ai pas fait toutes les parties comme prévu car j'ai utilisé ma propre solution pour beaucoup de choses comme : 
 > >l'orientation
+> >
 > >le stockage des données avant de revenir à la page d'accueil 
 > 
 > j'ai utilisé mon propre système de gestion des boutons et de stockage des données. 
+> 
 > on peut donc dire que je n'ai pas suivi ce qui m'a été demandé a la lettre mais que j'ai essayé de l'améliorer et de démontrer que je peux faire les choses différemment à ma manière et que les choses fonctionnent toujours parfaitement.
 
 > **Note:** I didn't do all the parts as expected because I used my own solution for a lot of things like: 
 > >orientation
+> >
 > > data storage before going back to the homepage 
 >
 >I used my own system button management and data storage.
+>
 > so we can say that I did not follow what was asked of me to the letter but that I tried to improve it and to demonstrate that I can do things differently in my own way and that things still work perfectly.
