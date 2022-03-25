@@ -38,7 +38,7 @@ public class ChoixTable extends AppCompatActivity implements View.OnClickListene
             tables = !text.isEmpty()? Integer.parseInt(text) : 1;
             tables = tables>99?99:tables;
             tables = tables<0?0:tables;
-            Intent switchActivityIntent = new Intent(this, MainActivity.class);
+            Intent switchActivityIntent = new Intent(this, Home.class);
             switchActivityIntent.putExtra("tables",tables);
             startActivity(switchActivityIntent);
         }

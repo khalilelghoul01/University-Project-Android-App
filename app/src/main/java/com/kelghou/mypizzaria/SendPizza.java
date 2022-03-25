@@ -11,16 +11,15 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 
-public class SendPizza extends AsyncTask<BundleServer, Void, String> {
+public class SendPizza extends AsyncTask<String, Void, String> {
 
     private Socket client;
     private PrintWriter printwriter;
     private BufferedReader in;
     @Override
-    protected String doInBackground(BundleServer... bunles) {
+    protected String doInBackground(String... bunles) {
         String response = "";
-        BundleServer bundle = bunles[0];
-        String message = bundle.message;
+        String message = bunles[0];
         try {
             client = new Socket("chadok.info", 9874);// connect to the server
             printwriter = new PrintWriter(client.getOutputStream(), true);

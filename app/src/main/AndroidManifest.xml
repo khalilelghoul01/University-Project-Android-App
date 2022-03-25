@@ -13,16 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPizzaria">
         <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
             android:name=".PizzaMultipleChoice"
             android:exported="false"
-            android:theme="@style/Theme.MyPizzaria.PopMe"/>
+            android:theme="@style/Theme.MyPizzaria.PopMe" />
         <activity
             android:name=".PopUp"
             android:exported="false"
             android:theme="@style/Theme.MyPizzaria.PopMe" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
         <activity android:name=".ChoixTable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

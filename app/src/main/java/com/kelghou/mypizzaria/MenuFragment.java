@@ -1,27 +1,38 @@
 package com.kelghou.mypizzaria;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.hardware.SensorManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.OrientationEventListener;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link MenuFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class MenuFragment extends Fragment implements View.OnClickListener {
+
+    /*
+    *
+    * variables begin
+    *
+    * */
 
     static HashMap<Integer,Integer> buttons= new HashMap<Integer,Integer>();
     static HashMap<Integer,String> buttonNames= new HashMap<Integer,String>();
@@ -30,34 +41,61 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Set<Integer> keytablesData = tablesData.keySet();
     ArrayList<Integer> excludeBtns = new ArrayList<Integer>() ;
     int tableNum = 0;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        buttonsToExclude();
-        updateInNewThread();
-        buttonsHandlers();
-        CollectExtras();
+    View currentView;
 
-        OrientationEventListener orientationListener = new OrientationEventListener(MainActivity.this, SensorManager.SENSOR_DELAY_UI) {
-            public void onOrientationChanged(int orientation) {
-                buttons = getData();
-                keyButtons = buttons.keySet();
-                for(int key : keyButtons){
-                    Button buttonInst = ((Button) findViewById(key));
-                    String output = buttonInst.getText().toString().contains(":")?buttonInst.getText().toString().split(":")[0]+": "+ buttons.get(key) :buttonInst.getText()+": "+buttons.get(key);
-                    Log.d("log",Integer.toString(key));
-                    if(keyButtons.contains(key)){
-                        if(buttons.get(key)>0){
-                            buttonInst.setText(output);
-                        }
-                    }
+    /*
+    *
+    * variables end
+    *
+    * */
 
-                }
-            }
-        };
-        orientationListener.enable();
+
+
+
+
+
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    public MenuFragment() {
+        // Required empty public constructor
     }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment MenuFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static MenuFragment newInstance(String param1, String param2) {
+        MenuFragment fragment = new MenuFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+
+    }
+
 
     void buttonsToExclude(){
         excludeBtns.add(R.id.button9);
@@ -67,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void updateInNewThread(){
-        new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
+        new Handler(getActivity().getMainLooper()).post(new Runnable() {
 
             @Override
             public void run() {
@@ -75,8 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
-    
-    
+
+
 
     void updateButtons(){
         buttons = getData();
@@ -100,8 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     String HandlePizzaSending(String pizza) throws ExecutionException, InterruptedException {
         SendPizza send = new SendPizza();
-        BundleServer bundle = new BundleServer(this,pizza);
-        return send.execute(bundle).get();
+        return send.execute(pizza).get();
     }
 
     HashMap<Integer,Integer> getData(){
@@ -116,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void CollectExtras() {
-        Bundle extras = getIntent().getExtras();
+        Bundle extras = getActivity().getIntent().getExtras();
         if (extras != null) {
             tableNum = extras.getInt("tables");
         }
@@ -171,14 +208,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-    
+
+    private Object findViewById(int tables) {
+        return currentView.findViewById(tables);
+    }
+
     public void onClick(View v) {
         keyButtons = buttons.keySet();
         if(v instanceof Button) {
             setData(buttons);
             if(v.getId() == R.id.tables){
                 setData(buttons);
-                Intent switchActivityIntent = new Intent(this, ChoixTable.class);
+                Intent switchActivityIntent = new Intent(getActivity(), ChoixTable.class);
                 startActivity(switchActivityIntent);
             }
             if(buttons.containsKey(v.getId()) && !excludeBtns.contains(v.getId()))
@@ -226,21 +267,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             try {
                 ServerResponse.add(HandlePizzaSending(pizza));
             } catch (ExecutionException e) {
-                Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),e.toString(),Toast.LENGTH_SHORT).show();
             } catch (InterruptedException e) {
-                Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),e.toString(),Toast.LENGTH_SHORT).show();
             }
         }
         loadActivity(PopUp.class);
     }
 
     private void loadActivity(Class activity){
-        Intent popup = new Intent(this,activity);
+        Intent popup = new Intent(getActivity(),activity);
         startActivity(popup);
     }
 
     public void startActivityOutside(Class activity){
-        Intent popup = new Intent(this,activity);
+        Intent popup = new Intent(getActivity(),activity);
         startActivity(popup);
     }
 
@@ -261,7 +302,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ((Button)findViewById(R.id.button9)).setEnabled(false);
         ((Button)findViewById(R.id.button10)).setEnabled(false);
     }
-    
+
     void checkState(){
         keyButtons = buttons.keySet();
         for (int key: keyButtons ) {
@@ -272,18 +313,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
+
+
 
     @Override
-    protected void onStart() {
-        super.onStart();
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        currentView = inflater.inflate(R.layout.fragment_menu, container, false);
+        // Inflate the layout for this fragment
+        buttonsToExclude();
+        updateInNewThread();
+        buttonsHandlers();
+        CollectExtras();
 
-    @Override
-    protected void onStop() {
-        super.onStop();
+        OrientationEventListener orientationListener = new OrientationEventListener(getActivity(), SensorManager.SENSOR_DELAY_UI) {
+            public void onOrientationChanged(int orientation) {
+                buttons = getData();
+                keyButtons = buttons.keySet();
+                for(int key : keyButtons){
+                    Button buttonInst = ((Button) findViewById(key));
+                    String output = buttonInst.getText().toString().contains(":")?buttonInst.getText().toString().split(":")[0]+": "+ buttons.get(key) :buttonInst.getText()+": "+buttons.get(key);
+                    Log.d("log",Integer.toString(key));
+                    if(keyButtons.contains(key)){
+                        if(buttons.get(key)>0){
+                            buttonInst.setText(output);
+                        }
+                    }
+
+                }
+            }
+        };
+        orientationListener.enable();
+        return currentView;
     }
 }
