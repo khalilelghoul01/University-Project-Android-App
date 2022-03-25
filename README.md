@@ -1,4 +1,3 @@
-# android-mobile-app-java---pizzaria--
 # Projet universitaire | University Project:
 
 >Je doit  créer une application qui gère un système de commande de restaurant en Java sur android studio
