@@ -4,4 +4,6 @@
     <string name="bgColorBtnPizza">#000000</string>
     <string name="fgColorBtnPizza">#fff</string>
     <string name="input" />
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -29,6 +29,7 @@ public class SendPizza extends AsyncTask<String, Void, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Log.i("response",response);
         return response;
     }
 }

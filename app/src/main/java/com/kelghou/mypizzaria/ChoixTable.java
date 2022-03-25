@@ -32,10 +32,10 @@ public class ChoixTable extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         if(v instanceof Button){
             EditText input = (EditText) findViewById(R.id.editTextNumber);
-            String text = "0";
+            String text = "1";
             if(input != null) {text = input.getText().toString();}
-            else {text = "0";}
-            tables = !text.isEmpty()? Integer.parseInt(text) : 0;
+            else {text = "1";}
+            tables = !text.isEmpty()? Integer.parseInt(text) : 1;
             tables = tables>99?99:tables;
             tables = tables<0?0:tables;
             Intent switchActivityIntent = new Intent(this, MainActivity.class);
@@ -44,21 +44,21 @@ public class ChoixTable extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    /*@Override
+    @Override
     protected void onPause() {
-        Toast.makeText(getApplicationContext(),"Pause",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"Pause",Toast.LENGTH_SHORT).show();
         super.onPause();
     }
 
     @Override
     protected void onStart() {
-        Toast.makeText(getApplicationContext(),"Start",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"Start",Toast.LENGTH_SHORT).show();
         super.onStart();
     }
 
     @Override
     protected void onStop() {
-        Toast.makeText(getApplicationContext(),"Stop",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"Stop",Toast.LENGTH_SHORT).show();
         super.onStop();
-    }*/
+    }
 }

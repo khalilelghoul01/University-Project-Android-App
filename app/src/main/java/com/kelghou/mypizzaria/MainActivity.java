@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonsToExclude();
         updateInNewThread();
         buttonsHandlers();
-        testHandler();
+        CollectExtras();
 
         OrientationEventListener orientationListener = new OrientationEventListener(MainActivity.this, SensorManager.SENSOR_DELAY_UI) {
             public void onOrientationChanged(int orientation) {
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tablesData.put(tableNum,data);
     }
 
-    private void testHandler() {
+    private void CollectExtras() {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             tableNum = extras.getInt("tables");
@@ -149,7 +149,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void buttonsHandlers(){
         ((Button)findViewById(R.id.tables)).setOnClickListener(this);
         ((Button)findViewById(R.id.button9)).setOnClickListener(this);
+        ((Button)findViewById(R.id.button9)).setEnabled(false);
         ((Button)findViewById(R.id.button10)).setOnClickListener(this);
+        ((Button)findViewById(R.id.button10)).setEnabled(false);
         addButton(R.id.button1);
         addButton(R.id.button2);
         addButton(R.id.button3);
@@ -175,9 +177,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(buttons.containsKey(v.getId()) && !excludeBtns.contains(v.getId()))
             {
                 buttons.put(v.getId(), buttons.get(v.getId())+1);
+                updateButtonsStateUi();
+
             }else{
-                if(!excludeBtns.contains(v.getId()))
+                if(!excludeBtns.contains(v.getId())){
                     buttons.put(v.getId(), 1);
+                    updateButtonsStateUi();
+                }
             }
             if(!excludeBtns.contains(v.getId())){
                 Button buttonInst = ((Button) findViewById(v.getId()));
@@ -187,20 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
             if(v.getId() == R.id.button9){
-                ArrayList<String> commandsToSend = getPizzaFormatBtns();
-                ArrayList<String> ServerResponse = getPizzaFormatBtns();
-                resetButtons();
-                updateInNewThread();
-                for (String pizza:commandsToSend) {
-                    try {
-                        ServerResponse.add(HandlePizzaSending(pizza));
-                    } catch (ExecutionException e) {
-                        Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
-                    } catch (InterruptedException e) {
-                        Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
-                    }
-                }
-                
+                handleCommands();
             }
             if(v.getId() == R.id.button10){
                 resetButtons();
@@ -209,12 +202,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void handleCommands() {
+        ArrayList<String> commandsToSend = getPizzaFormatBtns();
+        ArrayList<String> ServerResponse = new ArrayList<>();
+        resetButtons();
+        updateInNewThread();
+        for (String pizza:commandsToSend) {
+            try {
+                ServerResponse.add(HandlePizzaSending(pizza));
+            } catch (ExecutionException e) {
+                Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
+            } catch (InterruptedException e) {
+                Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }
+        Intent popup = new Intent(this,PopUp.class);
+        startActivity(popup);
+    }
+
+    void updateButtonsStateUi(){
+        if(!(((Button)findViewById(R.id.button9)).isEnabled())){
+            ((Button)findViewById(R.id.button9)).setEnabled(true);
+        }
+        if(!(((Button)findViewById(R.id.button10)).isEnabled())){
+            ((Button)findViewById(R.id.button10)).setEnabled(true);
+        }
+    }
 
     void resetButtons(){
         buttons.forEach((k,v) -> {
             buttons.put(k,0);
         });
         setData(buttons);
+        ((Button)findViewById(R.id.button9)).setEnabled(false);
+        ((Button)findViewById(R.id.button10)).setEnabled(false);
     }
     @Override
     protected void onPause() {
