@@ -16,10 +16,6 @@
             android:name=".Home"
             android:exported="false" />
         <activity
-            android:name=".PizzaMultipleChoice"
-            android:exported="false"
-            android:theme="@style/Theme.MyPizzaria.PopMe" />
-        <activity
             android:name=".PopUp"
             android:exported="false"
             android:theme="@style/Theme.MyPizzaria.PopMe" />

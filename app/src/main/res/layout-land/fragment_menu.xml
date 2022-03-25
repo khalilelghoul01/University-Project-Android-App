@@ -6,33 +6,20 @@
     android:layout_height="match_parent">
 
 
-    <Button
-        android:id="@+id/custom"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="10dp"
-        android:text="Pizza Personalisé"
-        android:textColor="#000000"
-        app:backgroundTint="#63FFA9"
-        app:layout_constraintBottom_toTopOf="@+id/button1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="1" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="50dp"
         android:text="NAPOLITAINE"
         android:textColor="#000000"
         app:backgroundTint="#63FFA9"
         app:layout_constraintEnd_toStartOf="@id/button2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/custom"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/button3"
         app:layout_constraintVertical_weight="1" />
 
@@ -42,12 +29,13 @@
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="50dp"
         android:text="ROYALE"
         android:textColor="#000000"
         app:backgroundTint="#63FFA9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button1"
-        app:layout_constraintTop_toBottomOf="@id/custom"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/button4"
         app:layout_constraintVertical_weight="1" />
 
@@ -181,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Numéro de table:"
-        app:layout_constraintBottom_toTopOf="@+id/custom"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
@@ -193,7 +181,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:text="Changer Table"
-        app:layout_constraintBottom_toTopOf="@+id/custom"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toEndOf="@+id/textView3"

@@ -194,7 +194,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         ((Button)findViewById(R.id.button9)).setEnabled(false);
         ((Button)findViewById(R.id.button10)).setOnClickListener(this);
         ((Button)findViewById(R.id.button10)).setEnabled(false);
-        ((Button)findViewById(R.id.custom)).setOnClickListener(this);
         addButton(R.id.button1);
         addButton(R.id.button2);
         addButton(R.id.button3);
@@ -247,16 +246,9 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                 resetButtons();
                 updateInNewThread();
             }
-            if(v.getId() == R.id.custom){
-                createCustomPizza();
-                updateInNewThread();
-            }
         }
     }
 
-    private void createCustomPizza() {
-        loadActivity(PizzaMultipleChoice.class);
-    }
 
     private void handleCommands() {
         ArrayList<String> commandsToSend = getPizzaFormatBtns();
