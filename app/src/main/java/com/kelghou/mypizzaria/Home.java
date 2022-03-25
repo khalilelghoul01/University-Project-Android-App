@@ -13,6 +13,7 @@ public class Home extends AppCompatActivity {
 
 
     ActivityHomeBinding binding;
+    public static Fragment CurrentFragment = null;
 
 
     @Override
@@ -20,7 +21,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new MenuFragment());
+        replaceFragment(CurrentFragment != null? CurrentFragment : new MenuFragment());
         binding.bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
 
             switch (item.getItemId()){
@@ -37,6 +38,7 @@ public class Home extends AppCompatActivity {
     }
 
     private void replaceFragment(Fragment fragment){
+        CurrentFragment = fragment;
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame,fragment);
