@@ -9,7 +9,7 @@
 
 |                						|Description					|
 |---------------------------------------|-------------------------------|
-|**Partie 1 - Part 1**						|Prise en main | First Impression ✅          |
+|**Partie 1 - Part 1**						|Prise en main '|' First Impression ✅          |
 |**Partie 2 - Part 2**						|Interface✅       |
 |**Partie 3 - Part 3**						|Animation de l'interface | Animation of the interfac✅|
 |**Partie 4 - Part 4**						|Choix de la table du restaurant | Choice of restaurant table✅|
