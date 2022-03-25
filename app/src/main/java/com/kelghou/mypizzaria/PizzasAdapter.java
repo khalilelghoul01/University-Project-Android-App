@@ -23,16 +23,7 @@ public class PizzasAdapter extends BaseAdapter
 
     String getName(int i){
         ArrayList<String> pizza = pizzas.get(i);
-        String name = "Pizza:";
-        int index = 0;
-        for (String elm: pizza) {
-            index++;
-            if(index == pizza.size()){
-                name += elm ;
-            }else {
-                name += elm + "-";
-            }
-        }
+        String name = "Pizza:"+ pizza.toString() ;
         return name;
     }
 
