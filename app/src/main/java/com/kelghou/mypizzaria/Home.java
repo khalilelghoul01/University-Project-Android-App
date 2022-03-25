@@ -5,16 +5,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.kelghou.mypizzaria.databinding.ActivityHomeBinding;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements View.OnClickListener {
 
 
     ActivityHomeBinding binding;
     public static Fragment CurrentFragment = null;
-
+    int tableNum = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,19 @@ public class Home extends AppCompatActivity {
 
             return true;
         });
+        CollectExtras();
+        Button returnButton = (Button) findViewById(R.id.tables2);
+
+        returnButton.setOnClickListener(this);
+    }
+
+    private void CollectExtras() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            tableNum = extras.getInt("tables");
+        }
+        TextView tables = (TextView) findViewById(R.id.tableViewText);
+        tables.setText(tables.getText()+" "+tableNum);
     }
 
     private void replaceFragment(Fragment fragment){
@@ -43,5 +60,15 @@ public class Home extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame,fragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view instanceof Button){
+            if(view.getId() == R.id.tables2){
+                Intent switchActivityIntent = new Intent(this, ChoixTable.class);
+                startActivity(switchActivityIntent);
+            }
+        }
     }
 }

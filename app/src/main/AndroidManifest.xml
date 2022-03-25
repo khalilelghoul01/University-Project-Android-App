@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPizzaria">
         <activity
+            android:name=".CustomListView"
+            android:exported="false" />
+        <activity
             android:name=".Home"
             android:exported="false" />
         <activity

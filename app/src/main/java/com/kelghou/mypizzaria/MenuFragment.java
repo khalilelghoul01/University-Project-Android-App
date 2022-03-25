@@ -100,7 +100,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     void buttonsToExclude(){
         excludeBtns.add(R.id.button9);
         excludeBtns.add(R.id.button10);
-        excludeBtns.add(R.id.tables);
         //excludeBtns.add(R.id.custom);
     }
 
@@ -157,8 +156,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         if (extras != null) {
             tableNum = extras.getInt("tables");
         }
-        TextView tables = (TextView) findViewById(R.id.textView3);
-        tables.setText(tables.getText()+" "+tableNum);
     }
 
     private void addButton(int id){
@@ -189,7 +186,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     }
 
     private void buttonsHandlers(){
-        ((Button)findViewById(R.id.tables)).setOnClickListener(this);
         ((Button)findViewById(R.id.button9)).setOnClickListener(this);
         ((Button)findViewById(R.id.button9)).setEnabled(false);
         ((Button)findViewById(R.id.button10)).setOnClickListener(this);
@@ -216,11 +212,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         keyButtons = buttons.keySet();
         if(v instanceof Button) {
             setData(buttons);
-            if(v.getId() == R.id.tables){
-                setData(buttons);
-                Intent switchActivityIntent = new Intent(getActivity(), ChoixTable.class);
-                startActivity(switchActivityIntent);
-            }
             if(buttons.containsKey(v.getId()) && !excludeBtns.contains(v.getId()))
             {
                 buttons.put(v.getId(), buttons.get(v.getId())+1);
