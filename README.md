@@ -32,6 +32,8 @@
 
 
 
+
+
 > **Note:** I didn't do all the parts as expected because I used my own solutions for a lot of things like:
 >>orientation
 >>
