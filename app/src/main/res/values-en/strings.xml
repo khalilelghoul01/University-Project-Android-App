@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">pizzeria</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="napolitaine">NEAPOLITAN</string>
+    <string name="royale">ROYAL</string>
+    <string name="quatre_fromage">FOUR CHEESE</string>
+    <string name="montagnarde">MOUNTAIN PIZZA</string>
+    <string name="raclette">RACLETTE</string>
+    <string name="hawai">HAWAI</string>
+    <string name="panna_cotta">PANNA COTTA</string>
+    <string name="tiramisu">TIRAMISU</string>
+    <string name="envoyer_la_commande">Send order</string>
+    <string name="effacer">erase</string>
+    <string name="ajouter">Add</string>
+    <string name="quatre_fromages">FOUR CHEESE</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="envoyer">Send</string>
+    <string name="pizzas">Pizzas</string>
+    <string name="commande_envoy_avec_succ_s">Order sent successfully</string>
+    <string name="changer_table">Change table</string>
+    <string name="num_ro_de_table">Table number:</string>
+    <string name="valider">Validate</string>
+    <string name="param_tre">Settings</string>
+    <string name="personalis">Custom</string>
+    <string name="menu">Menu</string>
+</resources>

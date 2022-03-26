@@ -7,9 +7,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.kelghou.mypizzaria.databinding.ActivityHomeBinding;
 
@@ -34,6 +36,9 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                     break;
                 case R.id.customMenu:
                     replaceFragment(new CustomFragment());
+                    break;
+                case R.id.settings:
+                    replaceFragment(new SettingFragment());
                     break;
             }
 
@@ -62,6 +67,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         fragmentTransaction.commit();
     }
 
+
+
     @Override
     public void onClick(View view) {
         if(view instanceof Button){
@@ -71,4 +78,5 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             }
         }
     }
+
 }

@@ -22,7 +22,7 @@
             android:backgroundTint="#ff0000"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Effacer" />
+            android:text="@string/effacer" />
 
         <Button
             android:id="@+id/ajouter"
@@ -36,7 +36,7 @@
             android:layout_marginRight="10dp"
             android:textColor="#000"
             app:backgroundTint="#63FFA9"
-            android:text="Ajouter" />
+            android:text="@string/ajouter" />
 
         <Button
             android:id="@+id/envoyer"
@@ -49,7 +49,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Envoyer" />
+            android:text="@string/envoyer_la_commande" />
 
         <TextView
             android:id="@+id/textView4"
@@ -57,7 +57,7 @@
             android:layout_height="30dp"
             android:textAlignment="center"
             android:layout_marginTop="25dp"
-            android:text="Ingredients"
+            android:text="@string/ingredients"
             android:textColor="#8500D8"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -84,7 +84,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pizzas"
+            android:text="@string/pizzas"
             android:textColor="#8500D8"
             android:textSize="20sp"
             android:textStyle="bold"

@@ -111,6 +111,7 @@ public class CustomFragment extends Fragment implements View.OnClickListener {
         add = (Button) view.findViewById(R.id.ajouter);
         Button effacer = (Button) view.findViewById(R.id.effacer);
         envoyer = (Button) view.findViewById(R.id.envoyer);
+        checkPizza();
         add.setEnabled(false);
         ListView ingredientsView = (ListView) view.findViewById(R.id.ingredients);
         ListView pizzasView = (ListView) view.findViewById(R.id.pizzas);
@@ -170,8 +171,8 @@ public class CustomFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         if(view instanceof Button){
             if(view.getId() == R.id.ajouter){
-                checkPizza();
                 pizzas.add(0,(ArrayList<String>) pizza.clone());
+                checkPizza();
                 pizza.clear();
                 elementIds.clear();
                 ingredientsAdpter.notifyDataSetChanged();
@@ -214,7 +215,7 @@ public class CustomFragment extends Fragment implements View.OnClickListener {
     private ArrayList<String> getPizzaFormatBtns() {
         ArrayList<String> pizzasFormat = new ArrayList<>();
         for(ArrayList<String> pizzaTemp : pizzas){
-            pizzasFormat.add(0,(String.valueOf(tableNum).length()==1?"0"+String.valueOf(tableNum):String.valueOf(tableNum))+String.join(" + ",pizzaTemp));
+            pizzasFormat.add(0,(String.valueOf(tableNum).length()==1?"0"+String.valueOf(tableNum):String.valueOf(tableNum))+"Pizza: "+String.join(" + ",pizzaTemp));
         }
         return pizzasFormat;
     }

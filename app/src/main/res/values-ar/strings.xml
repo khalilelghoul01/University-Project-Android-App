@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">مطعم بيتزا</string>
+    <string name="hello_blank_fragment">مرحبا جزء فارغ</string>
+    <string name="napolitaine">نيبوليتان</string>
+    <string name="royale">رويال</string>
+    <string name="quatre_fromage">أربع جبن</string>
+    <string name="montagnarde">بيتزا الجبل</string>
+    <string name="raclette">الراكليت</string>
+    <string name="hawai">هاواي</string>
+    <string name="panna_cotta">بانا كوتا</string>
+    <string name="tiramisu">تيراميسو</string>
+    <string name="envoyer_la_commande">ارسال الطلب</string>
+    <string name="effacer">محو</string>
+    <string name="ajouter">يضيف</string>
+    <string name="quatre_fromages">أربع جبن</string>
+    <string name="ingredients">مكونات</string>
+    <string name="envoyer">إرسال</string>
+    <string name="pizzas">بيتزا</string>
+    <string name="commande_envoy_avec_succ_s">تم إرسال الأمر بنجاح</string>
+    <string name="changer_table">طاولة التغيير</string>
+    <string name="num_ro_de_table">رقم الطاولة:</string>
+    <string name="valider">للتحقق من صحة</string>
+    <string name="param_tre">ضبط</string>
+    <string name="personalis">إضفاء الطابع الشخصي</string>
+    <string name="menu">القائمة</string>
+</resources>

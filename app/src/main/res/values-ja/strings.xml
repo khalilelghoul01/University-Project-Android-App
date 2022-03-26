@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ピッツェリア</string>
+    <string name="hello_blank_fragment">こんにちは空白のフラグメント</string>
+    <string name="napolitaine">ナポリタン</string>
+    <string name="royale">王立</string>
+    <string name="quatre_fromage">フォーチーズ</string>
+    <string name="montagnarde">マウンテンピザ</string>
+    <string name="raclette">ラクレットピザ</string>
+    <string name="hawai">ハワイ</string>
+    <string name="panna_cotta">パンナコッタ</string>
+    <string name="tiramisu">ティラミス</string>
+    <string name="envoyer_la_commande">注文を送信</string>
+    <string name="effacer">消去するには</string>
+    <string name="ajouter">追加</string>
+    <string name="quatre_fromages">フォーチーズ</string>
+    <string name="ingredients">材料</string>
+    <string name="envoyer">送信</string>
+    <string name="pizzas">ピザ</string>
+    <string name="commande_envoy_avec_succ_s">コマンドが正常に送信されました</string>
+    <string name="changer_table">おむつ交換台</string>
+    <string name="num_ro_de_table">テーブル番号：</string>
+    <string name="valider">検証するには</string>
+    <string name="param_tre">設定</string>
+    <string name="personalis">パーソナライズ</string>
+    <string name="menu">メニュー</string>
+</resources>
