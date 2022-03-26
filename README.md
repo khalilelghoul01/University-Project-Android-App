@@ -32,8 +32,6 @@
 
 
 
-
-
 > **Note:** I didn't do all the parts as expected because I used my own solutions for a lot of things like:
 >>orientation
 >>
@@ -42,3 +40,21 @@
 >I used my own button management and state storage system.
 >
 >we can therefore say that I did not follow what was asked of me to the letter but I tried to do it in another way to show that I can do things differently in my own >way and that things still work well.
+
+
+
+
+# screenShots
+
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-1.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-2.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-3.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-4.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-5.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-6.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-7.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-8.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-9.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-10.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-11.png)
+![](https://raw.githubusercontent.com/khalilelghoul01/University-Project-Android-App/master/screenshots/ScreenShots-12.png)
