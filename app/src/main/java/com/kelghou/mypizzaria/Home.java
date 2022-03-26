@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.view.View;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.kelghou.mypizzaria.databinding.ActivityHomeBinding;
+
+import java.util.Locale;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,10 +73,12 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
 
 
 
+
     @Override
     public void onClick(View view) {
         if(view instanceof Button){
             if(view.getId() == R.id.tables2){
+                finish();
                 Intent switchActivityIntent = new Intent(this, ChoixTable.class);
                 startActivity(switchActivityIntent);
             }

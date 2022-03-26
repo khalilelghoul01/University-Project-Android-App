@@ -23,6 +23,7 @@ public class ChoixTable extends AppCompatActivity implements View.OnClickListene
 
     }
 
+
     private void buttonsHandlers(){
         Button submit = ((Button) findViewById(R.id.btnValider));
         submit.setOnClickListener(this);

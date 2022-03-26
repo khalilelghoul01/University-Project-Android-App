@@ -248,7 +248,10 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         updateInNewThread();
         for (String pizza:commandsToSend) {
             try {
-                ServerResponse.add(HandlePizzaSending(pizza));
+                String resp = HandlePizzaSending(pizza);
+                ServerResponse.add(resp);
+                Log.i("response",resp);
+                Log.i("pizza",pizza);
             } catch (ExecutionException e) {
                 Toast.makeText(getActivity(),e.toString(),Toast.LENGTH_SHORT).show();
             } catch (InterruptedException e) {
