@@ -13,28 +13,30 @@
 |**Partie 3 - Part 3**						|Animation de l'interface `/\` Animation of the interfac✅|
 |**Partie 4 - Part 4**						|Choix de la table du restaurant `/\` Choice of restaurant table✅|
 |**Partie 5 - Part 5**						|Envoi des commandes en cuisine `/\` Sending orders to the kitchen✅          |
-|**Partie 6 - Part 6**						|Pizza personnalisée `/\` Personalized pizza❌✅           |
+|**Partie 6 - Part 6**						|Pizza personnalisée `/\` Personalized pizza✅           |
 |**Partie 7 - Part 7**						|Préférences `/\` Preferences|
-|**complémentaires 1 - complementary 1**    |`Not Yet`|
-|**complémentaires 2 - complementary 2**    |`Not Yet`|
-|**complémentaires 3 - complementary 3**    |`Not Yet`|
+|**complémentaires 1 - complementary 1**    |Multi langues `/\` Multi languages✅|
+|**complémentaires 2 - complementary 2**    |Logo✅❌|
+|**complémentaires 3 - complementary 3**    |Choix d'ingrédients `/\` Choising ingredients✅|
 
 
 # Note
-> **Note:** Je n'ai pas fait toutes les parties comme prévu car j'ai utilisé ma propre solution pour beaucoup de choses comme : 
-> >l'orientation
-> >
-> >le stockage des données avant de revenir à la page d'accueil 
-> 
-> j'ai utilisé mon propre système de gestion des boutons et de stockage des données. 
-> 
-> on peut donc dire que je n'ai pas suivi ce qui m'a été demandé a la lettre mais que j'ai essayé de l'améliorer et de démontrer que je peux faire les choses différemment à ma manière et que les choses fonctionnent toujours parfaitement.
+> **Note:** Je n'ai pas fait toutes les parties comme prévu car j'ai utilisé mes propres solutions pour beaucoup de choses comme :
+>>orientation
+>>
+>>stocker des données avant de revenir à la page d'accueil
+>
+>J'ai utilisé mon propre système de gestion des boutons et de stockage d'état.
+>
+>on peut donc dire que je n'ai pas suivi à la lettre ce qu'on me demandait mais j'ai essayé de le faire d'une autre manière pour montrer que je peux faire les choses différemment à ma manière et que ça marche toujours bien.
 
-> **Note:** I didn't do all the parts as expected because I used my own solution for a lot of things like: 
-> >orientation
-> >
-> > data storage before going back to the homepage 
+
+
+> **Note:** I didn't do all the parts as expected because I used my own solutions for a lot of things like:
+>>orientation
+>>
+>>storing data before returning to the home page
 >
->I used my own system button management and data storage.
+>I used my own button management and state storage system.
 >
-> so we can say that I did not follow what was asked of me to the letter but that I tried to improve it and to demonstrate that I can do things differently in my own way and that things still work perfectly.
+>we can therefore say that I did not follow what was asked of me to the letter but I tried to do it in another way to show that I can do things differently in my own >way and that things still work well.
