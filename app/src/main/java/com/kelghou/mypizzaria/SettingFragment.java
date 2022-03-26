@@ -97,9 +97,8 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 android.content.res.Configuration();
         config.locale = locale;
         resources.updateConfiguration(config, resources.getDisplayMetrics());
-        //restart base activity
         getActivity().finish();
-        Intent refresh = new Intent(getContext(), Home.class);
+        Intent refresh = new Intent(getContext(), ChoixTable.class);
         refresh.putExtra("tables",tableNum);
         getActivity().startActivity(refresh);
     }
@@ -120,7 +119,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
             if(lang.contains("English")){
                 switchLocal(getContext(),"en");
             }else if ( lang.contains("Français")){
-                switchLocal(getContext(),"en");
+                switchLocal(getContext(),"fr");
 
             }else if ( lang.contains("عربي")){
                 switchLocal(getContext(),"ar");
